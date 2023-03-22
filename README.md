@@ -11,7 +11,7 @@ If the script will be executed for a different environment, the flag *Name=tag:N
 - Select the desired region.
 - Open Cloudshell.
 - Run the code below.
-- Download the file snapshot_name.csv
+- Download the file ebs_snapshots.csv
 ```
-aws ec2 describe-snapshots --filters Name=tag:Name,Values=snapshot_name*  --query 'Snapshots[].[Tags[?Key==`Name`]|[0].Value]' --output text |grep `date +%y-%m-` >on-running-snapshots.csv
+aws ec2 describe-snapshots --filters Name=tag:Name,Values=snapshot_name*  --query 'Snapshots[].[Tags[?Key==`Name`]|[0].Value]' --output text |grep `date +%y-%m-` >ebs_snapshots.csv
 ```
